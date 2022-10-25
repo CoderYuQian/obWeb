@@ -1,0 +1,155 @@
+{
+  "main": {
+    "id": "06bbe84c2df71da6",
+    "type": "split",
+    "children": [
+      {
+        "id": "61db8144947b0251",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8be4948e9d025762",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "INTERVIEW/React.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e85d46e0b7f285c0",
+    "type": "split",
+    "children": [
+      {
+        "id": "e9a5e3dd9e4f71e4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "78435ae91e898de4",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "b76b90b1d1a9b449",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "f115f6f386a64cd2",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "396e5ec4eb7f5e06",
+    "type": "split",
+    "children": [
+      {
+        "id": "338158280fb44fac",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dad6ac4da00ee419",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "INTERVIEW/React.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "a9829ad299e6e084",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "INTERVIEW/React.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "90004738f2940d4d",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "81d3ef284bbb86be",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "INTERVIEW/React.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "ribbon": {
+    "mostRecentAction": ""
+  },
+  "active": "8be4948e9d025762",
+  "lastOpenFiles": [
+    "FILE/面试题/09-React全家桶实战.pdf",
+    "INTERVIEW/React.md",
+    "INTERVIEW/Vue.md",
+    "INTERVIEW/HTML&CSS.md",
+    "INTERVIEW/JavaScript.md",
+    "FILE/面试题/06-Vue3全家桶实战.pdf",
+    "FILE/面试题/01-HTML+CSS.pdf",
+    "FILE/面试题/08-小程序云开发实战.pdf",
+    "FILE/面试题/07-小程序开发实战.pdf",
+    "FILE/面试题/03-JS高级.pdf"
+  ]
+}
