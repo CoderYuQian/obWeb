@@ -4,22 +4,71 @@
     "type": "split",
     "children": [
       {
-        "id": "61db8144947b0251",
+        "id": "ce4029fefd0e6872",
         "type": "tabs",
         "children": [
           {
-            "id": "8be4948e9d025762",
+            "id": "4b335bf5d7f2277a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "INTERVIEW/React.md",
+                "file": "NOTES/html&css/notes/HTML.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "7615df462b0f3788",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NOTES/html&css/notes/补充.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "906967bee39f84ff",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NOTES/html&css/notes/补充.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "66103bf02ae7404d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "INTERVIEW/Vue.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "154dcce662a0f425",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NOTES/tools/VSCode.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -69,7 +118,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 276
   },
   "right": {
     "id": "396e5ec4eb7f5e06",
@@ -85,7 +134,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "INTERVIEW/React.md",
+                "file": "NOTES/html&css/notes/补充.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +151,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "INTERVIEW/React.md",
+                "file": "NOTES/html&css/notes/补充.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +174,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "INTERVIEW/React.md"
+                "file": "NOTES/html&css/notes/补充.md"
               }
             }
           }
@@ -136,20 +185,17 @@
     "width": 300,
     "collapsed": true
   },
-  "ribbon": {
-    "mostRecentAction": ""
-  },
-  "active": "8be4948e9d025762",
+  "active": "7615df462b0f3788",
   "lastOpenFiles": [
-    "FILE/面试题/09-React全家桶实战.pdf",
-    "INTERVIEW/React.md",
+    "NOTES/html&css/notes/CSS.md",
+    "NOTES/html&css/notes/补充.md",
+    "NOTES/html&css/notes/HTML.md",
+    "NOTES/tools/VSCode.md",
     "INTERVIEW/Vue.md",
-    "INTERVIEW/HTML&CSS.md",
-    "INTERVIEW/JavaScript.md",
-    "FILE/面试题/06-Vue3全家桶实战.pdf",
-    "FILE/面试题/01-HTML+CSS.pdf",
-    "FILE/面试题/08-小程序云开发实战.pdf",
-    "FILE/面试题/07-小程序开发实战.pdf",
-    "FILE/面试题/03-JS高级.pdf"
+    "NOTES/html&css/xmind/CSS样式规则顺序.md",
+    "NOTES/Vue/mind map/基础语法.md",
+    "NOTES/Vue/mind map/Vue3.X组件相关语法.md",
+    "NOTES/Vue/mind map/VUE3.x动画和高级语法.md",
+    "INTERVIEW/前端工程化基础.md"
   ]
 }
