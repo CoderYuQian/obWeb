@@ -139,18 +139,7 @@ em、i、cite、address、var、dfn等元素的font-style默认就是italic
 - hidden：溢出的内容直接裁剪
 - scroll：溢出的内容被裁剪，但可以通过滚动机制查看（会一直显示滚动条区域，滚动条区域占用的空间属于width、height）
 - auto：自动根据内容是否溢出来决定是否提供滚动机制
-## CSS属性 - box-sizing
-box-sizing用来设置盒子模型中宽高的行为
-- **content-box** ：padding、border都布置在width、height外边
-- **border-box** ：padding、border都布置在width、height里边
-### box-sizing: content-box
-- 元素的实际占用宽度 = border + padding + width
-- 元素的实际占用高度 = border + padding + height
-### box-sizing: border-box
-- 元素的实际占用宽度 = width
-- 元素的实际占用高度 = height
 
-### IE盒子模型
 
 ## CSS属性 - white-space
 **white-space用于设置空白处理和换行规则**
@@ -212,12 +201,15 @@ overflow:hidden;
 - \[attr$=val\]: 属性值以val结尾
 - \[attr|=val\]: 属性值等于val或者以val开头后面紧跟连接符-;
 - \[attr~=val\]: 属性值包含val, 如果有其他值必须以空格和val分割;
+
 ## 后代选择器
 **后代选择器一: 所有的后代(直接/间接的后代）** 选择器之间以空格分割
 **后代选择器二: 直接子代选择器(必须是直接子代)** 选择器之间以 > 分割;
+
 ## 兄弟选择器
 **兄弟选择器一:相邻兄弟选择器** 使用符号 + 连接
 **兄弟选择器二: 普遍兄弟选择器 ~** 使用符号 ~ 连接
+
 ## 选择器组 – 交集选择器
 **交集选择器: 需要同时符合两个选择器条件(两个选择器紧密连接)** 在开发中通常为了精准的选择某一个元素;
 **并集选择器: 符合一个选择器条件即可(两个选择器以,号分割)** 在开发中通常为了给多个元素设置相同的样式;
@@ -242,6 +234,7 @@ Pseudo-classes: 翻译过来是伪类;伪类是选择器的一种，它用于选
 - **6.否定伪类（negation pseudo-classes）**
   :not()
 所有的伪类: https://developer.mozilla.org/zhCN/docs/Web/CSS/Pseudo-classe
+
 #### 动态伪类
 **使用举例:**
 - a:link 未访问的链接
@@ -315,12 +308,43 @@ Pseudo-classes: 翻译过来是伪类;伪类是选择器的一种，它用于选
 #### 伪元素 - ::before和::after(常用）
 ::before和::after用来在一个元素的内容之前或之后插入其他内容（可以是文字、图片)
 常通过 content 属性来为一个元素添加修饰性的内容。
+```CSS
+    .item::before {
+      content: "321";
+      color: orange;
+      font-size: 20px;
+    }
+    
+ /* 额外的补充 */
+    /* ::after是一个行内级元素 */
+    .item::after {
+      /* content: "cba"; */
+      /* 使用伪元素的过程中, 不要将content省略 */
+      /* content: ""; */
+      
+      content: url("../images/hot_icon.svg");
+      color: green;
+      font-size: 20px;
+  
+      /* 位置不是很好看 */
+      position: relative; /* 相对定位 */
+      left: 5px;
+      top: 2px;
+    }
+```
 
 # CSS继承
 CSS的某些属性具有**继承性**(Inherited)：如果一个属性具备继承性, 那么在该元素上设置后, 它的后代元素都可以继承这个属性；当然, 如果后代元素自己有设置该属性, 那么优先使用后代元素自己的属性(不管继承过来的属性权重多高);
 如何知道一个属性是否具有继承性呢?
 常见的font-size/font-family/font-weight/line-height/color/text-align都具有继承性（多查看文档）
 注意(了解): 继承过来的是计算值, 而不是设置值；
+**强制继承：** 
+```css
+.box p {
+      /* 强制继承父元素的boder；很少用 */
+      border: inherit;
+    }
+```
 
 # CSS属性的层叠
 CSS的翻译是层叠样式表, 什么是**层叠**呢?
@@ -328,8 +352,9 @@ CSS的翻译是层叠样式表, 什么是**层叠**呢?
 **多个样式属性覆盖：**
 - 判断一: 选择器的权重, 权重大的生效, 根据权重可以判断出优先级;
 - 判断二: 先后顺序, 权重相同时, 后面设置的生效
+
 ## 选择器的权重
-按照经验，为了方便比较CSS属性的优先级，可以给CSS属性所处的环境定义一个权值（权重）：
+按照经验，为了方便比较CSS属性的优先级，可以给CSS属性所处的环境定义一个权值（权重）（了解：权重可以累加）：
 - !important：10000
 - 内联样式：1000
 - id选择器：100
@@ -348,6 +373,7 @@ CSS的翻译是层叠样式表, 什么是**层叠**呢?
 **为了区分哪些元素需要独占一行, 哪些元素不需要独占一行, HTML将元素区分(本质是通过CSS的)成了两类：**
 - 块级元素（block-level elements）: 独占父元素的一行
 - 行内级元素（inline-level elements）:多个行内级元素可以在父元素的同一行中显示
+
 ## 通过CSS修改元素类型
 ### CSS属性 - display
 **CSS中有个display属性，能修改元素的显示类型，有4个常用值：**
@@ -357,12 +383,63 @@ CSS的翻译是层叠样式表, 什么是**层叠**呢?
 - none：隐藏元素
 **display值的特性(非常重要)：**
 - block元素：独占父元素的一行；可以随意设置宽高；高度默认由内容决定
-- inline-block元素:跟其他行内级元素在同一行显示；可以随意设置宽高（对外来说，它是一个行内级元素，对内来说，它是一个块级元素）
+- inline-block元素:跟其他行内级元素在同一行显示；可以随意设置宽高（理解：对外来说，它是一个行内级元素，对内来说，它是一个块级元素）
 - inline:跟其他行内级元素在同一行显示;不可以随意设置宽高;宽高都由内容决定;
+
+补充：
+img元素: inline - replaced -> 行内替换元素
+行内替换元素:
+1. 和其他的行内级元素在同一行显示
+2. 可以设置宽度和高度
+
+# vertical-align(重要)
+
+## 深入理解vertical-align – line boxes
+
+**官方文档的翻译：vertical-align会影响行内块级元素在一个行盒中垂直方向的位置**
+
+**思考：一个div没有设置高度的时候，会不会有高度？**
+- 没有内容，没有高度
+- 有内容，内容撑起来高度
+**但是内容撑起来高度的本质是什么呢？**
+- 内容有行高（line-height），撑起来了div的高度
+**行高为什么可以撑起div的高度？**
+这是因为line boxes的存在，并且line-boxes有一个特性，包裹每行的inline level，而其中的文字是有行高的，*必须将整个行高包裹进去，才算包裹这个line-level*
+**那么，进一步思考：**
+- 情况一：只有文字时，line boxes如何包裹内容？
+- 情况二：有图片，有文字时，line-boxes如何包裹内容？
+- 情况三：有图片，有文字，有inline-block（比图片要大）如何包裹内容？
+- 情况四：有图片，有文字，有inline-block（比图片要大）而且设置了margin-bottom，如何包裹内容？
+- 情况五：有图片、文字、inline-block（比图片要大）而且设置了margin-bottom并且有文字，如何包裹内容？
+**结论**：line-boxes一定会想办法包裹住当前行中所有的内容。
+
+## vertical-align的baseline
+为什么对齐方式千奇百怪呢？
+你认为的千奇百怪，其实有它的内在规律;答案就是baseline对齐
+官方vertical-align的默认值：没错，就是baseline
+**但是baseline都是谁呢？**
+- 文本的baseline是字母x的下方
+- Inline-block默认的baseline是margin-bottom的底部（没有，就是盒子的底部）
+- Inline-block默认的baseline是margin-bottom的底部（没有，就是盒子的底部）
+**注意：当一个inline-box中有文本时，它的基线不再是底部，而是最后一行文本的基线**
+
+## vertical-align的其他值
+**不同的取值:**
+- baseline(默认值)：基线对齐（你得先明白什么是基线）
+- top：把行内级盒子的顶部跟line boxes顶部对齐
+- middle：行内级盒子的中心点与父盒基线加上x-height一半的线对齐
+- bottom：把行内级盒子的底部跟line box底部对齐
+- \<percentage\>：把行内级盒子提升或者下降一段距离（距离相对于line-height计算\元素高度）， 0%意味着同baseline一 样
+- \<percentage\>：把行内级盒子提升或者下降一段距离，0cm意味着同baseline一样
+解决图片下边缘的间隙方法:
+- 方法一: 设置成top/middle/bottom
+- 方法二: 将图片设置为block元素
+
 ## 编写HTML时的注意事项
 ## 块级元素、inline-block元素
 - 一般情况下，可以包含其他任何元素（比如块级元素、行内级元素、inline-block元素）
 - 特殊情况，p元素不能包含其他块级元素
+
 ## 行内级元素（比如a、span、strong等）
 一般情况下，只能包含行内级元素
 
@@ -372,6 +449,7 @@ CSS的翻译是层叠样式表, 什么是**层叠**呢?
 **方法二: visibility设置为hidden：** 设置为hidden, 虽然元素不可见, 但是会占据元素应该占据的空间；默认为visible, 元素是可见的;
 **方法三: rgba设置颜色, 将a的值设置为0：** rgba的a设置的是alpha值, 可以设置透明度, 不影响子元素;
 **方法四: opacity设置透明度, 设置为0：** 设置整个元素的透明度, 会影响所有的子元素;
+
 ## CSS样式不生效技巧
 为何有时候编写的CSS属性不好使，有可能是因为：
 - 选择器的优先级太低
@@ -387,68 +465,71 @@ CSS的翻译是层叠样式表, 什么是**层叠**呢?
 - **行内级元素(包括inline-block元素)**
   水平居中：在父元素中设置text-align: center
 - **块级元素**
-  水平居中：margin: 0 auto
+  水平居中：margin: 0 auto.（margin-left：auto；margin-right：auto；浏览器会自动将剩余空间平均分配）（相当于利用浏览器的特性，不推荐使用，推荐使用flex布局）
+  
+### auto到底是什么?
+- 800 = 200 + ml0 + mr0 + 0 + 0
+- auto -> 交给浏览器你来处理
+- width: auto;
+  1. 行内非替换元素 -> width: 包裹内容
+  2. 块级元素 ->width: 包含块的宽度
+  3. 绝对定位元素 -> width: 包裹内
 
-# CSS中的函数
-**在前面我们有使用过很多个CSS函数:**
-比如rgb/rgba/translate/rotate/scale等;CSS函数通常可以帮助我们更加灵活的来编写样式的值；
-**几个非常好用的CSS函数:**
-- var: 使用CSS定义的变量;
-- calc: 计算CSS值, 通常用于计算元素的大小或位置;
-- blur: 毛玻璃(高斯模糊)效果
-- gradient：颜色渐变函数；
-## CSS函数 - var
-**CSS中可以自定义属性**
-- 属性名需要以两个减号（--）开始;
-- 属性值则可以是任何有效的CSS值;
-    ```css
-  div {
-	  --why-color: red;
-  }
-  ```
-我们可以通过var函数来使用
-```css
-span {
-	color: var(--why-color)
-}
-```
+# CSS设置背景
+## background-image
+**background-image用于设置元素的背景图片：** 会盖在(不是覆盖)background-color的上面
+**如果设置了多张图片：** 设置的第一张图片将显示在最上面，其他图片按顺序层叠在下面
 
-**规则集定义的选择器, 是自定义属性的可见作用域(只在选择器内部有效)** 所以推荐将自定义属性定义在html中，也可以使用 :root 选择器
+**注意**：如果设置了背景图片后，元素没有具体的宽高，背景图片是不会显示出来的
 
-## CSS函数 -calc
-**calc() 函数允许在声明 CSS 属性值时执行一些计算。**
-计算支持加减乘除的运算；(+ 和 - 运算符的两边必须要有空白字符。)
-通常用来设置一些元素的尺寸或者位置；
+## background-repeat
+**background-repeat用于设置背景图片是否要平铺**
+常见的设值有：
+- repeat：平铺
+- no-repeat：不平铺
+- repeat-x：只在水平方向平铺
+- repeat-y：只在垂直平方向平铺
 
-## CSS函数 - blur
-**blur() 函数将高斯模糊应用于输出图片或者元素**
-- blur(radius)
-- radius, 模糊的半径, 用于定义高斯函数的偏差值, 偏差值越大, 图片越模糊;
-**通常会和两个属性一起使用：**
-- filter: 将模糊或颜色偏移等图形效果应用于元素;
-- backdrop-filter: 为元素后面的区域添加模糊或者其他效果;
+## background-size
+**background-size用于设置背景图片的大小**
+- auto：默认值, 以背景图本身大小显示
+- cover：缩放背景图，以完全覆盖铺满元素,可能背景图片部分看不见
+- contain：缩放背景图，宽度或者高度铺满元素，但是图片保持宽高比
+- \<percentage\>：百分比，相对于背景区（background positioning area）
+- length：具体的大小，比如100px
 
-## CSS函数 – gradient
-**\<gradient\>是一种\<image\>CSS数据类型的子类型，用于表现两种或多种颜色的过渡转变。**
-- CSS的\<image\>数据类型描述的是2D图形；
-- 比如background-image、list-style-image、border-image、content等；
-- \<image\>常见的方式是通过url来引入一个图片资源；
-- 它也可以通过CSS的 \<gradient\> 函数来设置颜色的渐变；
-**\<gradient\>常见的函数实现有下面几种：**
-- linear-gradient()：创建一个表示两种或多种颜色线性渐变的图片；
-- radial-gradient()：创建了一个图像，该图像是由从原点发出的两种或者多种颜色之间的逐步过渡组成；
-- repeating-linear-gradient()：创建一个由重复线性渐变组成的\<image\>；
-- repeating-radial-gradient()：创建一个重复的原点触发渐变组成的\<image\>；
-- 等等
-#### linear-gradient的使用
-linear-gradient：创建一个表示两种或多种颜色线性渐变的图片；
-```css
-background-image: linear-gradient(to right, blue, red 10%, purple 40%, orange);
-```
-radial-gradient：创建了一个图像，该图像是由从原点发出的两种或者多种颜色之间的逐步过渡组成；
-```css
-background-image: radial-gradient(at 0% 50%, red, yellow);
-```
+## background-position
+**background-position用于设置背景图片在水平、垂直方向上的具体位置**
+- background-position用于设置背景图片在水平、垂直方向上的具体位置
+- 水平方向还可以设值：left、center、right
+- 垂直方向还可以设值：top、center、bottom
+- 如果只设置了1个方向，另一个方向默认是center
+
+## background-attachment
+**background-attachment决定背景图像的位置是在视口内固定，或者随着包含它的区块滚动。**
+**可以设置以下3个值：**
+- scroll：此关键属性值表示背景相对于元素本身固定， 而不是随着它的内容滚动
+- local：此关键属性值表示背景相对于元素的内容固定。如果一个元素拥有滚动机制，背景将会随着元素的内容滚动.
+- fixed：此关键属性值表示背景相对于视口固定。即使一个元素拥有滚动机制，背景也不会随着元素的内容滚动。
+
+## background
+**background是一系列背景相关属性的简写属性**
+background-size可以省略，如果不省略，background-size必须紧跟在background-position的后面，其他属性也都可以省略，而且顺序任意
+
+## background-image和img对比
+**利用background-image和img都能够实现显示图片的需求，在开发中该如何选择？**
+
+|                        | img      | background-image |
+| ---------------------- | -------- | ---------------- |
+| 性质                   | HTML元素 | CSS样式          |
+| 图片是否占用空间       |     √     |×|
+| 浏览器右键直接查看地址 |√|×|
+| 支持CSS Sprite         |×|√|
+|更有可能被搜索引擎收录|√（结合alt属性）|×|
+**总结**：
+- img，作为网页内容的重要组成部分，比如广告图片、LOGO图片、文章配图、产品图片
+- background-image，可有可无。有，能让网页更加美观。无，也不影响用户获取完整的网页内容信息
+
 
 # 盒子模型
 ## 盒子模型(Box Model)
@@ -457,8 +538,10 @@ HTML中的每一个元素都可以看做是一个盒子，具备4个属性：
 2. 内边距（padding）：元素和内容之间的间距
 3. 边框（border）：元素自己的边框
 4. 外边距（margin）：元素和其他元素之间的间距
+
 ## 盒子模型的四边
 因为盒子有四边, 所以margin/padding/border都包括top/right/bottom/left四个边
+
 ## 内容 – 宽度和高度
 设置内容是通过宽度和高度设置的：宽度设置: width；高度设置: height
 注意: 对于行内级非替换元素来说, 设置宽高是无效的!
@@ -469,6 +552,7 @@ HTML中的每一个元素都可以看做是一个盒子，具备4个属性：
 下面两个属性不常用:
 - min-height：最小高度，无论内容多少，高度都大于或等于min-height
 - max-height：最大高度，无论内容多少，高度都小于或等于max-height
+
 ## 内边距 - padding
 padding属性用于设置盒子的内边距, 通常用于设置边框和内容之间的间距;
 padding包括四个方向, 所以有如下的取值:
@@ -493,6 +577,10 @@ border用于设置盒子的边框
 - 边框具备宽度width;
 - 边框具备样式style;
 - 边框具备颜色color;
+补充：
+背景色有没有设置到border下面(有设置)
+前景色会在border没有设置颜色的情况下, 显示出来color颜色
+
 **设置边框的方式**：
 - 边框宽度
   - border-top-width、border-right-width、border-bottom-width、border-left-width
@@ -506,6 +594,8 @@ border用于设置盒子的边框
 **边框的样式设置值:**
 - groove：凹槽, 沟槽, 边框看上去好象是雕刻在画布之内
 - ridge：山脊, 和grove相反，边框看上去好象是从画布中凸出来
+- dashed：虚线
+- solid：实线
 - 等等
 同时设置的方式：如果我们相对某一边同时设置 宽度 样式 颜色, 可以进行如下设置:
 - border-top
@@ -547,7 +637,7 @@ margin也并非必须是四个值, 也可以有其他值：
 - **margin-top传递：** 如果块级元素的顶部线和父元素的顶部线重叠，那么这个块级元素的margin-top值会传递给父元素
 - **margin-bottom传递：** 如果块级元素的底部线和父元素的底部线重写，并且父元素的高度是auto，那么这个块级元素的margin-bottom值会传递给父元素
 - **如何防止出现传递问题？** 
-  - 给父元素设置padding-top\padding-bottom
+  - 给父元素设置padding-top、padding-bottom
   - 给父元素设置border
   - 触发BFC: 设置overflow为auto
 - **建议：**
@@ -565,12 +655,12 @@ margin也并非必须是四个值, 也可以有其他值：
 2. 父子块级元素之间margin的折叠
 
 ## 外轮廓 - outline
-outline表示元素的外轮廓：不占用空间；默认显示在border的外面
+outline表示元素的外轮廓：**不占用空间**；默认显示在border的外面
 outline相关属性有：
 - outline-width: 外轮廓的宽度
 - outline-style：取值跟border的样式一样，比如solid、dotted等
 - outline-color: 外轮廓的颜色
-- outline：outline-width、outline-style、outline-color的简写属性，跟border用法类
+- outline：outline-width、outline-style、outline-color的简写属性，跟border用法类似
 应用实例：去除a元素、input元素的focus轮廓效
 
 ## 盒子阴影 – box-shadow
@@ -594,7 +684,7 @@ none | <shadow>#    <shadow> = inset? && <length>{2,4} && <color>?
   ```css
   none | <shadow-t>#    <shadow-t> = [<length>{2,3} && <color>?]
   ```
-  相当于box-shadow, 它没有spread-radius的值;
+  相当于box-shadow, 它没有spread-radius和inset的值;
 
 我们可以通过一个网站测试文字的阴影： https://html-css-js.com/css/generator/box-shadow/
 
@@ -603,57 +693,38 @@ none | <shadow>#    <shadow> = inset? && <length>{2,4} && <color>?
   width、height、margin-top、margin-bottom
 - **以下属性对行内级非替换元素的效果比较特殊**
   padding-top、padding-bottom、上下方向的border
+```css
+.content {
+      background-color: #f00;
+      color: white;
+      /* 内容: width/height(压根不生效) */
+      width: 300px;
+      height: 300px;
+  
+      /* 内边距: padding */
+      /* 特殊: 上下会被撑起来, 但是不占据空间 */
+      /* padding: 50px; */
+  
+      /* 边框: border */
+      /* 特殊: 上下会被撑起来, 但是不占据空间 */
+      /* border: 50px solid orange; */
 
-# CSS设置背景
-## background-image
-**background-image用于设置元素的背景图片：** 会盖在(不是覆盖)background-color的上面
-**如果设置了多张图片：** 设置的第一张图片将显示在最上面，其他图片按顺序层叠在下面
+      /* 外边距: margin */
+      /* 特殊： 上下的margin是不生效的 */
+      margin: 50px;
+    }
+```
 
-**注意**：如果设置了背景图片后，元素没有具体的宽高，背景图片是不会显示出来的
-
-## background-repeat
-**background-repeat用于设置背景图片是否要平铺**
-常见的设值有：
-- repeat：平铺
-- no-repeat：不平铺
-- repeat-x：只在水平方向平铺
-- repeat-y：只在垂直平方向平铺
-## background-size
-**background-size用于设置背景图片的大小**
-- auto：默认值, 以背景图本身大小显示
-- cover：缩放背景图，以完全覆盖铺满元素,可能背景图片部分看不见
-- contain：缩放背景图，宽度或者高度铺满元素，但是图片保持宽高比
-- \<percentage\>：百分比，相对于背景区（background positioning area）
-- length：具体的大小，比如100px
-## background-position
-**background-position用于设置背景图片在水平、垂直方向上的具体位置**
-- background-position用于设置背景图片在水平、垂直方向上的具体位置
-- 水平方向还可以设值：left、center、right
-- 垂直方向还可以设值：top、center、bottom
-- 如果只设置了1个方向，另一个方向默认是center
-## background-attachment
-**background-attachment决定背景图像的位置是在视口内固定，或者随着包含它的区块滚动。**
-**可以设置以下3个值：**
-- scroll：此关键属性值表示背景相对于元素本身固定， 而不是随着它的内容滚动
-- local：此关键属性值表示背景相对于元素的内容固定。如果一个元素拥有滚动机制，背景将会随着元素的内容滚动.
-- fixed：此关键属性值表示背景相对于视口固定。即使一个元素拥有滚动机制，背景也不会随着元素的内容滚动。
-## background
-**background是一系列背景相关属性的简写属性**
-background-size可以省略，如果不省略，/background-size必须紧跟在background-position的后面，其他属性也都可以省略，而且顺序任意
-
-## background-image和img对比
-**利用background-image和img都能够实现显示图片的需求，在开发中该如何选择？**
-
-|                        | img      | background-image |
-| ---------------------- | -------- | ---------------- |
-| 性质                   | HTML元素 | CSS样式          |
-| 图片是否占用空间       |     √     |×|
-| 浏览器右键直接查看地址 |√|×|
-| 支持CSS Sprite         |×|√|
-|更有可能被搜索引擎收录|√（结合alt属性）|×|
-**总结**：
-- img，作为网页内容的重要组成部分，比如广告图片、LOGO图片、文章配图、产品图片
-- background-image，可有可无。有，能让网页更加美观。无，也不影响用户获取完整的网页内容信息
+## CSS属性 - box-sizing
+box-sizing用来设置盒子模型中宽高的行为
+- **content-box** ：padding、border都布置在width、height外边
+- **border-box** ：padding、border都布置在width、height里边
+### box-sizing: content-box（标准盒子模型）
+- 元素的实际占用宽度 = border + padding + width
+- 元素的实际占用高度 = border + padding + height
+### box-sizing: border-box（IE盒子模型）
+- 元素的实际占用宽度 = width
+- 元素的实际占用高度 = height
 
 # CSS元素定位
 
@@ -677,7 +748,7 @@ background-size可以省略，如果不省略，/background-size必须紧跟在b
 ## 认识position属性
 利用position可以对元素进行定位，常用取值有5个:
 **默认值：**
-static：默认值, 静态定位
+- static：默认值, 静态定位
 **使用下面的值, 可以让元素变成 定位元素(positioned element)**
 - relative：相对定位
 - absolute：绝对定位
@@ -685,10 +756,10 @@ static：默认值, 静态定位
 - sticky：粘性定位
 
 ## 静态定位 - static
-**position属性的默认值;**元素按照normal flow布局;left 、right、top、bottom没有任何作用
+**position属性的默认值;** 元素按照normal flow布局; left 、right、top、bottom没有任何作用
 
 ## 相对定位 - relative
-**元素按照normal flow布局；**可以通过left、right、top、bottom进行定位（定位参照对象是元素自己原来的位置）
+**元素按照normal flow布局；** 可以通过left、right、top、bottom进行定位（定位参照对象是元素自己原来的位置）
 left、right、top、bottom用来设置元素的具体位置
 **相对定位的应用场景：**
 在不影响其他元素位置的前提下，对当前元素位置进行微调
@@ -713,9 +784,27 @@ position值不为static的元素；也就是position值为relative、absolute、
 ### 子绝父相
 在绝大数情况下，子元素的绝对定位都是相对于父元素进行定位
 **如果希望子元素相对于父元素进行定位，又不希望父元素脱标，常用解决方案是：**
-- 父元素设置position: relative（让父元素成为定位元素，而且父元素不脱离标准流）
+- 父元素设置position: relative（让祖先元素）父元素成为定位元素，而且父元素不脱离标准流）
 - 子元素设置position: absolute
 - 简称为“子绝父相”
+### 案例：使用定位实现图片居中显示（随着页面缩小放大）
+```css
+    .box {
+      height: 489px;
+      background-color: #f00;
+      overflow: hidden;
+    }
+    .box img {
+      position: relative;
+      /* left: 图片的一半 */
+      left: -960px;
+      /* translate中的百分比是相对于自己 */
+      /* transform: translate(-50%); */
+
+      /* 向右边移动div的一般 */
+      margin-left: 50%;
+    }
+```
 
 ## 将position设置为absolute/fixed元素的特点(一)
 - **可以随意设置宽高**
@@ -723,7 +812,7 @@ position值不为static的元素；也就是position值为relative、absolute、
 - **不再受标准流的约束**
   - 不再严格按照从上到下、从左到右排布
   - 不再严格区分块级(block)、行内级(inline)，行内块级(inline-block)的很多特性都会消失
-- **不再给父元素汇报宽高数据**
+- **不再给父元素汇报宽高数据**（如果父元素没有设置宽高，可能会消失）
 - **脱标元素内部默认还是按照标准流布局**
 
 ## 将position设置为absolute/fixed元素的特点(二)
@@ -738,15 +827,6 @@ position值不为static的元素；也就是position值为relative、absolute、
   - left: 0、right: 0、top: 0、bottom: 0、margin: auto
   - 另外，还得设置具体的宽高值（宽高小于定位参照对象的宽高）
 
-## auto到底是什么?
-- 800 = 200 + ml0 + mr0 + 0 + 0
-- auto -> 交给浏览器你来处理
-- width: auto;
-  1. 行内非替换元素 -> width: 包裹内容
-  2. 块级元素 ->width: 包含块的宽度
-  3. 绝对定位元素 -> width: 包裹内
-
-
 ## 粘性定位 - sticky
 **另外还有一个定位的值是position: sticky，比起其他定位值要新一些.**
 - sticky是一个大家期待已久的属性;
@@ -754,6 +834,14 @@ position值不为static的元素；也就是position值为relative、absolute、
 - 它允许被定位的元素表现得像相对定位一样，直到它滚动到某个阈值点;
 - 当达到这个阈值点时, 就会变成固定(绝对)定位;
 - sticky是相对于最近的滚动祖先包含滚动视口的(the nearest ancestor scroll container’s scrollport )
+```css
+    .nav {
+      background-color: #f00;
+      color: #fff;
+      position: sticky;
+      top: 0;
+    }
+```
 
 ## position值对比
 |                     | 脱离标准流 | 定位元素 | 绝对定位元素 | 定位参照对象       |
@@ -806,6 +894,12 @@ position值不为static的元素；也就是position值为relative、absolute、
 ## 浮动规则五
 **行内级元素、inline-block元素浮动后，其顶部将与所在行的顶部对齐**
 
+### 将多个行内级元素中间的空格(间隙)去除的方法
+1. 删除换行符(不推荐)
+2. 将父级元素的font-size设置为0, 但是需要子元素设置回来
+3. 通过子元素(span)统一向一个方向浮动即可
+4. flex布局
+
 
 ## 浮动的问题 – 高度塌陷
 **由于浮动元素脱离了标准流，变成了脱标元素，所以不再向父元素汇报高度**；父元素计算总高度时，就不会计算浮动子元素的高度，导致了高度坍塌的问题
@@ -857,6 +951,9 @@ height:0;/*浏览器兼容性*/
 | float（浮动）                    | 水平布局 |
 
 # CSS Flex布局
+
+https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
+
 ## 认识flexbox
 **Flexbox翻译为弹性盒子:**
 - 弹性盒子是一种用于按行或按列布局元素的一维布局方法 ;
@@ -893,6 +990,7 @@ height:0;/*浏览器兼容性*/
 **设置 display 属性为 flex 或者 inline-flex 可以成为 flex container**
 - flex： flex container 以 block-level 形式存在
 - inline-flex： flex container 以 inline-level 形式存在
+
 ## flex相关的属性
 **应用在 flex container 上的 CSS 属性**
 - flex-flow
@@ -911,6 +1009,7 @@ height:0;/*浏览器兼容性*/
 - flex
 
 ## flex-direction
+改变主轴的方向
 **flex items 默认都是沿着 main axis（主轴）从 main start 开始往 main end 方向排布**
 - flex-direction 决定了 main axis 的方向，有 4 个取值
 - row（默认值）、row-reverse、column、column-reverse
@@ -1021,4 +1120,64 @@ auto（默认值）、具体的宽度数值（100px）
 - 第二个值必须为一个无单位数，并且它会被当作\<flex-shrink\>的值。
 - 第三个值必须为一个有效的宽度值， 并且它会被当作\<flex-basis\> 的值。
 
-# 
+# CSS中的函数
+**在前面我们有使用过很多个CSS函数:**
+比如rgb/rgba/translate/rotate/scale等;CSS函数通常可以帮助我们更加灵活的来编写样式的值；
+**几个非常好用的CSS函数:**
+- var: 使用CSS定义的变量;
+- calc: 计算CSS值, 通常用于计算元素的大小或位置;
+- blur: 毛玻璃(高斯模糊)效果
+- gradient：颜色渐变函数；
+## CSS函数 - var
+**CSS中可以自定义属性**
+- 属性名需要以两个减号（--）开始;
+- 属性值则可以是任何有效的CSS值;
+    ```css
+  div {
+	  --why-color: red;
+  }
+  ```
+我们可以通过var函数来使用
+```css
+span {
+	color: var(--why-color)
+}
+```
+
+**规则集定义的选择器, 是自定义属性的可见作用域(只在选择器内部有效)** 所以推荐将自定义属性定义在html中，也可以使用 :root 选择器
+
+## CSS函数 -calc
+**calc() 函数允许在声明 CSS 属性值时执行一些计算。**
+计算支持加减乘除的运算；(+ 和 - 运算符的两边必须要有空白字符。)
+通常用来设置一些元素的尺寸或者位置；
+
+## CSS函数 - blur
+**blur() 函数将高斯模糊应用于输出图片或者元素**
+- blur(radius)
+- radius, 模糊的半径, 用于定义高斯函数的偏差值, 偏差值越大, 图片越模糊;
+**通常会和两个属性一起使用：**
+- filter: 将模糊或颜色偏移等图形效果应用于元素;
+- backdrop-filter: 为元素后面的区域添加模糊或者其他效果;
+
+## CSS函数 – gradient
+**\<gradient\>是一种\<image\>CSS数据类型的子类型，用于表现两种或多种颜色的过渡转变。**
+- CSS的\<image\>数据类型描述的是2D图形；
+- 比如background-image、list-style-image、border-image、content等；
+- \<image\>常见的方式是通过url来引入一个图片资源；
+- 它也可以通过CSS的 \<gradient\> 函数来设置颜色的渐变；
+**\<gradient\>常见的函数实现有下面几种：**
+- linear-gradient()：创建一个表示两种或多种颜色线性渐变的图片；
+- radial-gradient()：创建了一个图像，该图像是由从原点发出的两种或者多种颜色之间的逐步过渡组成；
+- repeating-linear-gradient()：创建一个由重复线性渐变组成的\<image\>；
+- repeating-radial-gradient()：创建一个重复的原点触发渐变组成的\<image\>；
+- 等等
+#### linear-gradient的使用
+linear-gradient：创建一个表示两种或多种颜色线性渐变的图片；
+```css
+background-image: linear-gradient(to right, blue, red 10%, purple 40%, orange);
+```
+radial-gradient：创建了一个图像，该图像是由从原点发出的两种或者多种颜色之间的逐步过渡组成；
+```css
+background-image: radial-gradient(at 0% 50%, red, yellow);
+```
+

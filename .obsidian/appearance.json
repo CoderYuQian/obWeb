@@ -2,5 +2,6 @@
   "accentColor": "",
   "theme": "moonstone",
   "cssTheme": "Atom",
-  "textFontFamily": "宋体"
+  "textFontFamily": "宋体",
+  "baseFontSize": 17
 }

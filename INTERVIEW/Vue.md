@@ -25,7 +25,7 @@ SPA（ single-page application ）仅在 Web ⻚⾯初始化时加载相应的 H
 **缺点：**
 - 初次加载耗时多：为实现单⻚ Web 应⽤功能及显示效果，需要在加载⻚⾯的时候将 JavaScript、 CSS 统⼀加载，部分⻚⾯按需加载；
 - 前进后退路由管理：由于单⻚应⽤在⼀个⻚⾯中显示所有的内容，所以不能使⽤浏览器的前进后退 功能，所有的⻚⾯切换需要⾃⼰建⽴堆栈管理；
-- SEO 难度较⼤：由于所有的内容都在⼀个⻚⾯中动态替换显示，所以在 SEO 上其有着天然的弱 势。
+- SEO 难度较⼤：由于所有的内容都在⼀个⻚⾯中动态替换显示，所以在 SEO 上其有着天然的弱势。
 ## v-show 与 v-if 有什么区别？
 **用法上的区别：**
 - v-show是不⽀持template；
@@ -86,8 +86,8 @@ $event"/>
 JavaScript中的对象是引⽤类型的数据，当多个实例引⽤同⼀个对象时，只要⼀个实例对这个对象进⾏ 操作，其他实例中的数据也会发⽣变化。
 而在Vue中，我们更多的是想要复⽤组件，那就需要每个组件都有自己的数据，这样组件之间才不会相互⼲扰。
 所以组件的数据不能写成对象的形式，⽽是要写成函数的形式。数据以函数返回值的形式定义。
-这样当我们每次复⽤组件的时候，就会返回⼀个新的data，也就是说每个组件都有自己的私有数据空 间，它们各⾃维护⾃⼰的数据，不会⼲扰其他组件的正常运⾏。
-## Vue data 中某⼀个属性的值发⽣改变后，视图会⽴即同步执⾏ 重新渲染吗？
+这样当我们每次复⽤组件的时候，就会返回⼀个新的data，也就是说每个组件都有自己的私有数据空间，它们各⾃维护⾃⼰的数据，不会⼲扰其他组件的正常运⾏。
+## Vue data 中某⼀个属性的值发⽣改变后，视图会⽴即同步执⾏重新渲染吗？
 不会⽴即同步执⾏重新渲染。
 Vue 实现响应式并不是数据发⽣变化之后 DOM ⽴即变化，⽽是按⼀定的策略进⾏ DOM 的更新。
 Vue 在更新 DOM 时是异步执⾏的。只要侦听到数据变化， Vue 将开启⼀个队列，并缓冲在同⼀事件循 环中发⽣的所有数据变更。
@@ -98,7 +98,7 @@ sass是⼀种CSS预处理器语⾔，除此之外，less、stylus也是常⻅的
 sass安装和使⽤步骤如下：
 1. ⽤npm安装加载程序（ sass-loader、 css-loader等加载程序)。
 2. 在 webpack.config.js中配置sass加载程序。
-## 在 Vue. js开发环境下调⽤API接⼝，如何避免跨域？
+## 在 Vue.js开发环境下调⽤API接⼝，如何避免跨域？
 1. 在vue.config.js中的devServer选项中的proxy中配置反向代理
 2. 在vite.config.js中的server选项中的proxy中配置反向代理
 3. 直接后端开发⼈员配置cors
@@ -366,16 +366,16 @@ oldStartVnode、oldEndVnode 与 newStartVnode、newEndVnode 两两⽐较共有�
 ## Vue2 和 Vue3 响应性原理
 - Vue.js 2.0 采⽤数据劫持并结合了发布者-订阅者模式，通过 Object.defineProperty()来劫持各个属性的 setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调。
   官⽹的描述： https://cn.vuejs.org/v2/guide/reactivity.html
-- Vue.js 3.0放弃了Object.defineProperty API，⽽使⽤了更快的Proxy API。Proxy 是在 ES6 中引⼊，它 允许你拦截对该对象的任何交互，也可以避免 Vue 早期版本中存在的⼀些响应性问题。
+- Vue.js 3.0放弃了Object.defineProperty API，⽽使⽤了更快的Proxy API。Proxy 是在 ES6 中引⼊，它允许你拦截对该对象的任何交互，也可以避免 Vue 早期版本中存在的⼀些响应性问题。
   官⽹描述： https://v3.cn.vuejs.org/guide/reactivity.html
 ## nextTick ⽅法的实现原理
-- 当调⽤nexttick函数时，nexttick内部会将回调函数使⽤Promise来包裹，⽬的是将该回调函数加⼊ 到微任务队列中。
+- 当调⽤nexttick函数时，nexttick内部会将回调函数使⽤Promise来包裹，⽬的是将该回调函数加⼊到微任务队列中。
 - 在队列中的任务都是先进先出的，所以当执⾏完主程序的代码之后就会执⾏微任务队列中nexttick 的回调函数，那这个过程就称为⼀次tick。
 - 所以nexttick的回调函数将会推迟到下⼀个 DOM 更新周期之后执⾏。
 ## Proxy 与 Object.defineProperty 优劣对⽐
 **Proxy 的优势如下:**
 1. Object.defineProperty 只能劫持对象的属性，⽽ Proxy 是直接代理对象。
-   由于 Object.defineProperty 只能对属性进⾏劫持，需要遍历对象的每个属性，如果属性值也是对象， 则需要深度遍历。⽽ Proxy 直接代理对象，不需要遍历操作。
+   由于 Object.defineProperty 只能对属性进⾏劫持，需要遍历对象的每个属性，如果属性值也是对象，则需要深度遍历。⽽ Proxy 直接代理对象，不需要遍历操作。
 2. Object.defineProperty 对新增属性需要⼿动进⾏ Observe。
    由于 Object.defineProperty 劫持的是对象的属性，所以新增属性时，需要重新遍历对象，对其新增属 性再使⽤ Object.defineProperty 进⾏劫持。
    也正是因为这个原因，使⽤ Vue 给 data 中的数组或对象新增属性时，需要使⽤ vm.$set 才能保证新增 的属性也是响应式的。
@@ -457,7 +457,7 @@ oldStartVnode、oldEndVnode 与 newStartVnode、newEndVnode 两两⽐较共有�
   Proxy 可以理解成，在⽬标对象之前架设⼀层“拦截”，外界对该对象的访问，都必须先通过这层拦 截，因此提供了⼀种机制，可以对外界的访问进⾏过滤和改写。
 - Proxy响应式是惰性的。
   在 Vue.js 2.x 中，对于⼀个深层属性嵌套的对象，要劫持它内部深层次的变化，就需要递归遍历这 个对象，执⾏ Object.defineProperty 把每⼀层对象数据都变成响应式的，这⽆疑会有很⼤的性能 消耗。
-  在 Vue.js 3.0 中，使⽤ Proxy API 并不能监听到对象内部深层次的属性变化，因此它的处理⽅式是 在 getter 中去递归响应式，这样的好处是真正访问到的内部属性才会变成响应式，简单的可以说 是按需实现响应式，减少性能消耗。
+  在 Vue.js 3.0 中，使⽤ Proxy API 并不能监听到对象内部深层次的属性变化，因此它的处理⽅式是在 getter 中去递归响应式，这样的好处是真正访问到的内部属性才会变成响应式，简单的可以说 是按需实现响应式，减少性能消耗。
 # Axios⽹络请求库
 ## Axios是什么？怎么使⽤它，怎么解决跨域？
 **Axios是什么？**

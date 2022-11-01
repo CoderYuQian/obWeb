@@ -4,47 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "ce4029fefd0e6872",
+        "id": "f3bc5d8f7b816e31",
         "type": "tabs",
         "children": [
           {
-            "id": "4b335bf5d7f2277a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "NOTES/html&css/notes/HTML.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "7615df462b0f3788",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "NOTES/html&css/notes/补充.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "906967bee39f84ff",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "NOTES/html&css/notes/补充.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "66103bf02ae7404d",
+            "id": "b1a45ed52c1bba85",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -56,19 +20,43 @@
             }
           },
           {
-            "id": "154dcce662a0f425",
+            "id": "1165cbff20508cd8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "NOTES/tools/VSCode.md",
+                "file": "INTERVIEW/React.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "3c0536d875dc173e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "INTERVIEW/框架实战.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "0715dcd7f32af8e1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NOTES/html&css/notes/布局方案.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -118,7 +106,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 276
+    "width": 266.5
   },
   "right": {
     "id": "396e5ec4eb7f5e06",
@@ -134,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "NOTES/html&css/notes/补充.md",
+                "file": "NOTES/html&css/notes/布局方案.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -151,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "NOTES/html&css/notes/补充.md",
+                "file": "NOTES/html&css/notes/布局方案.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -174,28 +162,29 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "NOTES/html&css/notes/补充.md"
+                "file": "NOTES/html&css/notes/布局方案.md"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
     "width": 300,
     "collapsed": true
   },
-  "active": "7615df462b0f3788",
+  "active": "0715dcd7f32af8e1",
   "lastOpenFiles": [
     "NOTES/html&css/notes/CSS.md",
     "NOTES/html&css/notes/补充.md",
-    "NOTES/html&css/notes/HTML.md",
-    "NOTES/tools/VSCode.md",
+    "INTERVIEW/HTML&CSS.md",
     "INTERVIEW/Vue.md",
-    "NOTES/html&css/xmind/CSS样式规则顺序.md",
-    "NOTES/Vue/mind map/基础语法.md",
-    "NOTES/Vue/mind map/Vue3.X组件相关语法.md",
-    "NOTES/Vue/mind map/VUE3.x动画和高级语法.md",
-    "INTERVIEW/前端工程化基础.md"
+    "INTERVIEW/框架实战.md",
+    "INTERVIEW/前端工程化基础.md",
+    "INTERVIEW/小程序开发实战.md",
+    "INTERVIEW/小程序云开发实战.md",
+    "INTERVIEW/JavaScript.md",
+    "INTERVIEW/React.md"
   ]
 }
